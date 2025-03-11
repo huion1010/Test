@@ -1,0 +1,43 @@
+// 아두이노 RED회로
+#define LED_r 7
+#define LED_g 8
+#define TRIG 12
+#define ECHO 11
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(LED_r, OUTPUT);
+  pinMode(LED_g, OUTPUT);
+  pinMode(TRIG, OUTPUT);
+  pinMode(ECHO, INPUT);
+}
+
+void loop()
+{
+  long duration, distance;
+  
+  digitalWrite(TRIG, LOW);
+  delay(2);
+  digitalWrite(TRIG, HIGH);
+  delay(10);
+  digitalWrite(TRIG, LOW);
+  
+  duration = pulseIn(ECHO, HIGH);
+  distance = duration / 58.2;
+  
+  Serial.println(duration );
+  Serial.print("\nDistance : ");
+  Serial.print(distance);
+  Serial.println(" Cm");
+  
+  if (distance >= 100) {
+    digitalWrite(LED_r, HIGH);
+    digitalWrite(LED_g, LOW);
+  }
+  else {
+  	digitalWrite(LED_r, LOW);
+  	digitalWrite(LED_g, HIGH);
+  }
+  delay(1000);
+}
