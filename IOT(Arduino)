@@ -1,4 +1,4 @@
-// 아두이노 RED회로
+// Arduino RED circuit
 #define LED_r 7
 #define LED_g 8
 #define TRIG 12
