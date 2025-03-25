@@ -28,7 +28,7 @@ void loop() {
   delay(1000);
 }
 =========================================================================================================================
-# Dust density sensor code connect with Arduino
+# Dust density sensor code connect with Arduino by Python
 from influxdb_client import InfluxDBClient
 import serial
 import time
